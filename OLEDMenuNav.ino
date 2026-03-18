@@ -3,7 +3,7 @@
  Description  : This is a program to showcase how the Inland OLED 1.2" OLED can be used to act as a functional display module
  MCU          : Arduino Uno R3
  Started      : 02/14/2026
- Last Edited  : 02/23/2026
+ Last Edited  : 03/18/2026
  By           : Robert J Guziec
 
  Pinout:
@@ -38,8 +38,6 @@ void setup() {
   u8g2.begin();
   EICRA = 0x0F;
   EIMSK = 0x03;
-
-  Serial.begin(9600);
 }
 
 void loop() {
@@ -110,6 +108,7 @@ void loop() {
       break;
   }
 
+  // Sub menu confirmation logic
   if (confirmSel && (selVal == 8)){
       chip = 0;
       confirmSel = 0;
