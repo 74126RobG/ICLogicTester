@@ -20,7 +20,6 @@
 */
 
 // * * * LIBRARIES * * * 
-#include <SPI.h>
 #include <U8g2lib.h>
 
 // Initialize the inland 1.3" OLED display using the u8g2 library
