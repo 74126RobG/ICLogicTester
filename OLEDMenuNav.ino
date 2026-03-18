@@ -24,7 +24,7 @@
 #include <SPI.h>
 #include <U8g2lib.h>
 
-// Initialize the inland 1.2" OLED display using the u8g2 library
+// Initialize the inland 1.3" OLED display using the u8g2 library
 U8G2_SSD1306_128X64_NONAME_1_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 13, /* data=*/ 11, /* cs=*/ 10, /* dc=*/ 9, /* reset=*/ 8);
 
 // * * * GROSS GLOBAL VARIABLES * * *
