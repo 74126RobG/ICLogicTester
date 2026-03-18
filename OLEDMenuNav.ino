@@ -15,8 +15,11 @@
  D11: OLED DATA
  D13: OLED CLK 
 
+ Author's Note: It is VITAL to debounce your pushbuttons with a schmitt inverter!!
+                Please refer to https://doctor-pasquale.com/debounced-pushbuttons/ for reference for this
 */
 
+// * * * LIBRARIES * * * 
 #include <Arduino.h>
 #include <SPI.h>
 #include <U8g2lib.h>
@@ -24,7 +27,7 @@
 // Initialize the inland 1.2" OLED display using the u8g2 library
 U8G2_SSD1306_128X64_NONAME_1_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 13, /* data=*/ 11, /* cs=*/ 10, /* dc=*/ 9, /* reset=*/ 8);
 
-// * * * GROSS VARIABLES * * *
+// * * * GROSS GLOBAL VARIABLES * * *
 volatile unsigned char selVal = 0;
 volatile unsigned char confirmSel = 0;
 volatile unsigned char chip = 0;
@@ -107,7 +110,6 @@ void loop() {
       break;
   }
 
-  // Why does this need to be after everything?
   if (confirmSel && (selVal == 8)){
       chip = 0;
       confirmSel = 0;
@@ -152,8 +154,8 @@ void Display7400Page(){
 
 void Display7402Page(){
   u8g2.drawStr(10, 15, "7402 Quad NOR gate");
-  u8g2.drawStr(7, 32, "This logic gate is an");
-  u8g2.drawStr(7, 44, "actually trash :(");
+  u8g2.drawStr(7, 32, "This logic gate is ");
+  u8g2.drawStr(7, 44, "has an odd pinout ");
   u8g2.drawStr(15, 56, "N/A"); 
   u8g2.drawStr(65, 56, "Back");
 }
